@@ -1,0 +1,61 @@
+import {Component, OnDestroy} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {Router, RouterLink} from '@angular/router';
+import {MatFormField, MatInput, MatLabel} from '@angular/material/input';
+import {MatButton} from '@angular/material/button';
+import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from '@angular/material/card';
+import {Subscription} from 'rxjs';
+import {LoginData} from '../../model/login-data.model';
+import {AuthResponse} from '../../model/auth-response.model';
+import {LoginService} from '../../service/login.service';
+
+@Component({
+  selector: 'app-login-page',
+  imports: [FormsModule, MatLabel, MatFormField, MatCardContent, MatCardTitle, MatCardHeader, MatCard, MatButton, RouterLink, MatInput],
+  templateUrl: './login-page.component.html',
+  styleUrl: './login-page.component.css'
+})
+export class LoginPageComponent implements OnDestroy {
+  constructor(
+    private loginService: LoginService,
+    private router: Router) {
+  }
+
+  loginData: LoginData = {
+    nickname: '',
+    password: ''
+  };
+
+  private authResponse: AuthResponse = {
+    success: false,
+    userId: '',
+    message: ''
+  };
+
+  private httpSub!: Subscription
+
+  requestAuth(): void {
+    // sprawdzenie czy user jest w bazie
+    this.httpSub = this.loginService
+      .logIn(this.loginData.nickname, this.loginData.password)
+      .subscribe((response: AuthResponse): void => {
+        if (response) {
+          this.authResponse = response
+          // redirect na stronę główną
+          console.log(this.authResponse.success)
+          if (this.authResponse.success) {
+            localStorage.setItem('ua-id', this.authResponse.userId);
+            this.router.navigate(['/hotels-list']);
+          } else {
+            localStorage.clear();
+            console.log("Brak autentykacji użytkownika")
+          }
+        }
+      })
+  }
+
+  ngOnDestroy(): void {
+    if (this.httpSub)
+      this.httpSub.unsubscribe();
+  }
+}

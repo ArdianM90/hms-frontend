@@ -1,0 +1,28 @@
+<mat-card class="hotel-card" *ngIf="hotel !== undefined">
+  <mat-card-header class="card-label">
+    <mat-card-title>{{ hotel.name }}</mat-card-title>
+    <mat-card-subtitle>{{ hotel.country }}, {{ hotel.city }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <img mat-card-image class="img" [ngSrc]="'assets/img/hotels/' + hotel.id + '.jpg'" alt="Hotel photo" width="300" height="200">
+
+  <mat-card-content class="card-content">
+    <div class="info-row">
+      <span>Rating:</span>
+      <span><strong>8.1</strong></span>
+    </div>
+    <div class="info-row">
+      <span>Price:</span>
+      <span><strong>{{ hotel.price }} PLN</strong></span>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary" [routerLink]="['/reservation/create', hotel.id]">
+      Make Reservation
+    </button>
+<!--    <button mat-stroked-button color="accent" (click)="redirectToReservation(hotel.id)">-->
+<!--      Add to Cart-->
+<!--    </button>-->
+  </mat-card-actions>
+</mat-card>

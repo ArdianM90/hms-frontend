@@ -1,0 +1,39 @@
+# Angular build output
+/dist
+/tmp
+/out-tsc
+/.angular/cache
+/coverage
+
+# Compiled and generated files
+/bazel-out
+/**/*.js
+/**/*.js.map
+/**/*.d.ts
+
+# Node modules
+/node_modules
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDEs and editors
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Misc
+/connect.lock
+/libpeerconnection.log
+testem.log
+.sass-cache/
+/typings

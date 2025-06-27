@@ -1,0 +1,36 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0 1.5em;
+  background-color: cadetblue;
+}
+
+.app-name {
+  font-weight: bold;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.nav-links {
+  padding-left: 100px;
+}
+
+.nav-links a {
+  margin: 0 0.5em;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+button {
+  margin-right: 0.5em;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar a {
+  text-decoration: none;
+  color: white;
+}

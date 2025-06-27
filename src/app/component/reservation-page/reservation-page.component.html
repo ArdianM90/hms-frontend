@@ -1,0 +1,58 @@
+<app-navbar />
+
+<mat-card class="reservation-card" *ngIf="hotel">
+  <mat-card-header>
+    <mat-card-title>{{ hotel.name }}</mat-card-title>
+    <mat-card-subtitle>{{ hotel.country }}, {{ hotel.city }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content class="reservation-content">
+    <div class="left-pane">
+      <form (ngSubmit)="addToCart()" class="reservation-form">
+        <input name="hotel_id" [value]="hotel.id" type="hidden" />
+
+        <p>Select your stay dates and room:</p>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Date from</mat-label>
+          <input matInput [matDatepicker]="pickerFrom" name="dateFrom">
+          <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+          <mat-datepicker #pickerFrom></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Date to</mat-label>
+          <input matInput [matDatepicker]="pickerTo" name="dateTo">
+          <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+          <mat-datepicker #pickerTo></mat-datepicker>
+        </mat-form-field>
+
+        <div class="price-info">
+          <div>Price:</div>
+          <div><strong>{{ hotel.price }} PLN</strong></div>
+        </div>
+
+        <div class="room-section">
+          <div>Room selection:</div>
+          <div *ngFor="let orderQty of orderedRooms; let idx = index">
+            <mat-form-field appearance="fill" class="full-width">
+              <mat-label>Room for {{ idx + 1 }} person(s)</mat-label>
+              <mat-select [(value)]="orderedRooms[idx]">
+                <mat-option *ngFor="let option of roomOptions" [value]="option">{{ option }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button mat-raised-button color="primary" type="submit">Add to cart</button>
+          <button mat-button type="button" routerLink="/hotels-list">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="right-pane">
+      <img [ngSrc]="'assets/img/hotels/' + hotel.id + '.jpg'" width="600" height="400" alt="Hotel image" />
+    </div>
+  </mat-card-content>
+</mat-card>

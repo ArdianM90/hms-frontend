@@ -1,0 +1,17 @@
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+.cards-container {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    border-style: solid;
+    border-color: red;
+}
+
+.card {
+  margin: 10px;
+}

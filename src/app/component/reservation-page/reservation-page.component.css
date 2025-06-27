@@ -1,0 +1,69 @@
+/*.row {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: center;*/
+/*}*/
+
+/*.row-justify {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-between;*/
+/*}*/
+
+/*section {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+
+/*form>div {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-between;*/
+/*}*/
+
+.reservation-card {
+  max-width: 1100px;
+  margin: 2em auto;
+  padding: 1em;
+}
+
+.reservation-content {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+}
+
+.left-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.right-pane img {
+  border-radius: 8px;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.reservation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.price-info {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin: 0.5em 0;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1em;
+  margin-top: 1em;
+}

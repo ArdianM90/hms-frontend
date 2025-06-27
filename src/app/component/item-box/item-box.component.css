@@ -1,0 +1,23 @@
+.hotel-card {
+  max-width: 320px;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.card-label {
+  margin-bottom: 20px;
+}
+
+.card-content {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
