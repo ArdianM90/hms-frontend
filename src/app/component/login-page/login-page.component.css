@@ -1,3 +1,13 @@
+.login-container {
+  height: 100vh;
+  margin: 0;
+  background-color: cadetblue;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 100px;
+}
+
 .login-card {
   min-width: 300px;
   max-width: 600px;

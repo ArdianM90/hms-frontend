@@ -29,21 +29,21 @@ export class LoginPageComponent implements OnDestroy {
   private authResponse: AuthResponse = {
     success: false,
     userId: '',
+    jwt: '',
     message: ''
   };
 
   private httpSub!: Subscription
 
   requestAuth(): void {
-    // sprawdzenie czy user jest w bazie
     this.httpSub = this.loginService
       .logIn(this.loginData.nickname, this.loginData.password)
       .subscribe((response: AuthResponse): void => {
         if (response) {
           this.authResponse = response
-          // redirect na stronę główną
           console.log(this.authResponse.success)
           if (this.authResponse.success) {
+            localStorage.setItem('jwt', this.authResponse.jwt);
             localStorage.setItem('ua-id', this.authResponse.userId);
             this.router.navigate(['/hotels-list']);
           } else {
