@@ -2,6 +2,7 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Hotel} from '../model/hotel.model'
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +12,10 @@ export class HotelService {
   }
 
   getAllHotels(): Observable<Hotel[]> {
-    return this.http.get<Hotel[]>(`http://localhost:8080/hms/v1/hotels`)
+    return this.http.get<Hotel[]>(`${environment.apiUrl}/hotels`, { withCredentials: true })
   }
 
   getHotel(hotelId: number): Observable<Hotel> {
-    return this.http.get<Hotel>(`http://localhost:8080/hms/v1/hotel?hotelId=${hotelId}`)
+    return this.http.get<Hotel>(`${environment.apiUrl}/hotel?hotelId=${hotelId}`, { withCredentials: true })
   }
 }

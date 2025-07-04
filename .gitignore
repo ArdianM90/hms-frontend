@@ -37,3 +37,7 @@ Thumbs.db
 testem.log
 .sass-cache/
 /typings
+
+# certs
+/ssl/
+*.pem

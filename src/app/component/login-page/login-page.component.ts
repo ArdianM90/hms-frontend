@@ -7,7 +7,7 @@ import {MatCard, MatCardContent, MatCardHeader, MatCardTitle} from '@angular/mat
 import {Subscription} from 'rxjs';
 import {LoginData} from '../../model/login-data.model';
 import {AuthResponse} from '../../model/auth-response.model';
-import {LoginService} from '../../service/login.service';
+import {AuthService} from '../../service/auth.service';
 
 @Component({
   selector: 'app-login-page',
@@ -17,12 +17,12 @@ import {LoginService} from '../../service/login.service';
 })
 export class LoginPageComponent implements OnDestroy {
   constructor(
-    private loginService: LoginService,
+    private authService: AuthService,
     private router: Router) {
   }
 
   loginData: LoginData = {
-    nickname: '',
+    login: '',
     password: ''
   };
 
@@ -36,8 +36,8 @@ export class LoginPageComponent implements OnDestroy {
   private httpSub!: Subscription
 
   requestAuth(): void {
-    this.httpSub = this.loginService
-      .logIn(this.loginData.nickname, this.loginData.password)
+    this.httpSub = this.authService
+      .logIn(this.loginData.login, this.loginData.password)
       .subscribe((response: AuthResponse): void => {
         if (response) {
           this.authResponse = response

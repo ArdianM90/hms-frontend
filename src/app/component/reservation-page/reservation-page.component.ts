@@ -37,10 +37,9 @@ export class ReservationPageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const hotelId: number = this.route.snapshot.params['hotelId'];
     console.log("Hotel ID: " + hotelId)
-    this.hotelService.getHotel(hotelId).subscribe((response) => {
+    this.hotelService.getHotel(hotelId).subscribe((response: Hotel): void => {
       if (response) {
         this.hotel = response;
-        // wypelnienie strony danymi hotelu
       }
     });
   }
