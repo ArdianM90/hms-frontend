@@ -36,7 +36,6 @@ export class ReservationPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const hotelId: number = this.route.snapshot.params['hotelId'];
-    console.log("Hotel ID: " + hotelId)
     this.hotelService.getHotel(hotelId).subscribe((response: Hotel): void => {
       if (response) {
         this.hotel = response;
@@ -45,7 +44,6 @@ export class ReservationPageComponent implements OnInit, OnDestroy {
   }
 
   addToCart(): void {
-    console.log("Klikam koszyk (" + this.hotel + ", " + this.hotel?.id + ")");
     if (this.hotel && this.hotel.id) {
       this.httpSub = this.reservationService.addToCart(this.hotel.id, "123").subscribe((response) => {
         console.log(response);

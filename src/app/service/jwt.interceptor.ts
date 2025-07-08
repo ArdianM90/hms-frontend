@@ -31,13 +31,13 @@ export const jwtInterceptor: HttpInterceptorFn = (req: HttpRequest<any>, next: H
             return sendRequestWithToken(req, next, response.jwt);
           }),
           catchError((err) => {
-            authService.clearTokens();
+            authService.clearToken();
             router.navigate(['/login-page']);
             return throwError((): HttpErrorResponse => err);
           })
         );
       } else if (error.status === 401) {
-        authService.clearTokens();
+        authService.clearToken();
         router.navigate(['/login-page']);
         return throwError((): HttpErrorResponse => error);
       } else {

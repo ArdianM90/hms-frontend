@@ -12,15 +12,18 @@ export class AuthService {
 
   logIn(login: String, password: String): Observable<AuthResponse> {
     const body = {login, password};
-    return this.http.post<AuthResponse>(`${environment.apiUrl}/login`, body, { withCredentials: true });
+    return this.http.post<AuthResponse>(`${environment.apiUrl}/auth/login`, body, { withCredentials: true });
+  }
+
+  logOut(): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/auth/logout`, {}, { withCredentials: true });
   }
 
   refreshToken(): Observable<AuthResponse> {
-    console.log('Pytam o odświeżenie tokena.');
     return this.http.post<AuthResponse>(`${environment.apiUrl}/auth/refresh`, {}, { withCredentials: true });
   }
 
-  clearTokens() {
+  clearToken(): void {
     localStorage.removeItem('jwt');
   }
 }

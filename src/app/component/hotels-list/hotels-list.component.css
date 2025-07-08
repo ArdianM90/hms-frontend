@@ -1,15 +1,17 @@
 .content {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .cards-container {
-    width: 60%;
-    display: flex;
-    justify-content: center;
-    flex-flow: row wrap;
-    border-style: solid;
-    border-color: red;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  margin-top: 30px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .card {

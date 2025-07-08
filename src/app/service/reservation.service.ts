@@ -19,7 +19,6 @@ export class ReservationService {
   addToCart(hotelId: number, uaId: string): Observable<ReservationResponse> {
         this.reservationRequest.hotelId = hotelId
         this.reservationRequest.uaId = uaId
-        console.log("Dodaję do koszyka: " + this.reservationRequest.hotelId + ", " + this.reservationRequest.uaId);
         return this.http.put<ReservationResponse>(`${environment.apiUrl}/reservation/create`, this.reservationRequest)
       }
 }
