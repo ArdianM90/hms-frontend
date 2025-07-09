@@ -8,10 +8,11 @@ import {Subscription} from 'rxjs';
 import {LoginData} from '../../model/login-data.model';
 import {AuthResponse} from '../../model/auth-response.model';
 import {AuthService} from '../../service/auth.service';
+import {FooterComponent} from '../footer/footer.component';
 
 @Component({
   selector: 'app-login-page',
-  imports: [FormsModule, MatLabel, MatFormField, MatCardContent, MatCardTitle, MatCardHeader, MatCard, MatButton, RouterLink, MatInput],
+  imports: [FormsModule, MatLabel, MatFormField, MatCardContent, MatCardTitle, MatCardHeader, MatCard, MatButton, RouterLink, MatInput, FooterComponent],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css'
 })

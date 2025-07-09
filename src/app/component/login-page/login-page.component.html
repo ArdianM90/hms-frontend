@@ -1,25 +1,28 @@
-<div class="login-container">
-  <mat-card class="login-card">
-    <mat-card-header class="login-label">
-      <mat-card-title>Log into Hotel Management System</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <form (ngSubmit)="requestAuth()" #loginForm="ngForm">
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Nickname</mat-label>
-          <input matInput required [(ngModel)]="loginData.login" name="nickname">
-        </mat-form-field>
+<div class="login-page">
+  <div class="login-container">
+    <mat-card class="login-card">
+      <mat-card-header class="login-label">
+        <mat-card-title>Log into Hotel Management System</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form (ngSubmit)="requestAuth()" #loginForm="ngForm">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nickname</mat-label>
+            <input matInput required [(ngModel)]="loginData.login" name="nickname">
+          </mat-form-field>
 
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Password</mat-label>
-          <input matInput required type="password" [(ngModel)]="loginData.password" name="password">
-        </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput required type="password" [(ngModel)]="loginData.password" name="password">
+          </mat-form-field>
 
-        <div class="button-group">
-          <button mat-raised-button color="primary" type="submit">Login</button>
-          <button mat-button type="button" routerLink="/register">Create user account</button>
-        </div>
-      </form>
-    </mat-card-content>
-  </mat-card>
+          <div class="button-group">
+            <button mat-raised-button color="primary" type="submit">Login</button>
+            <button mat-button type="button" routerLink="/register">Create user account</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <app-footer/>
 </div>

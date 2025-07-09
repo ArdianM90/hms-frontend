@@ -1,5 +1,4 @@
-<app-navbar />
-
+<app-navbar/>
 <mat-card class="reservation-card" *ngIf="hotel">
   <mat-card-header>
     <mat-card-title>{{ hotel.name }}</mat-card-title>
@@ -9,7 +8,7 @@
   <mat-card-content class="reservation-content">
     <div class="left-pane">
       <form (ngSubmit)="addToCart()" class="reservation-form">
-        <input name="hotel_id" [value]="hotel.id" type="hidden" />
+        <input name="hotel_id" [value]="hotel.id" type="hidden"/>
 
         <p>Select your stay dates and room:</p>
 
@@ -52,7 +51,8 @@
     </div>
 
     <div class="right-pane">
-      <img [ngSrc]="'assets/img/hotels/' + hotel.id + '.jpg'" width="600" height="400" alt="Hotel image" />
+      <img [ngSrc]="'assets/img/hotels/' + hotel.id + '.jpg'" width="600" height="400" alt="Hotel image"/>
     </div>
   </mat-card-content>
 </mat-card>
+<app-footer/>

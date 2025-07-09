@@ -14,10 +14,11 @@ import {Hotel} from '../../model/hotel.model';
 import {HotelService} from '../../service/hotel.service';
 import {ReservationService} from '../../service/reservation.service';
 import {NavbarComponent} from "../navbar/navbar.component";
+import {FooterComponent} from '../footer/footer.component';
 
 @Component({
   selector: 'app-reservation-page',
-  imports: [NavbarComponent, RouterModule, FormsModule, MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatSelectModule, MatCardModule, MatButton, MatInput, NgOptimizedImage, NgIf, NgFor],
+  imports: [NavbarComponent, RouterModule, FormsModule, MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatSelectModule, MatCardModule, MatButton, MatInput, NgOptimizedImage, NgIf, NgFor, FooterComponent],
   templateUrl: './reservation-page.component.html',
   styleUrl: './reservation-page.component.css'
 })
