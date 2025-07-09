@@ -1,59 +1,52 @@
-# HmsFrontend
+Readme PL -> [link](README.pl.md)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
+# Hotel Booking App – Frontend
 
-## Development server
+**Live demo:** [adrian-mienkowski-booking-app.vercel.app](https://adrian-mienkowski-booking-app.vercel.app)
 
-To start a local development server, run:
+This is the frontend part of a hotel booking application, built with Angular and TypeScript. It supports user login, displaying a list of hotels, and viewing hotel details. The application communicates with a Spring Boot backend via REST API and uses JWT authentication, with the access token stored in localStorage and the refresh token stored securely in httpOnly cookies.
 
+<p align="center">
+  <img src="img/login_page.jpg" width="250"/>
+</p>
+<p align="center">
+  <img src="img/hotels-list.jpg" width="250"/>
+  <img src="img/reservation-panel.jpg" width="250"/>
+</p>
+
+## Installation and running
+
+**Requirements:**
+- Node.js ≥ 18
+- npm ≥ 9
+- OpenSSL (required to generate SSL certificates)
+
+To make the login functionality work properly, you need:
+- the backend service running: [hms-backend](https://github.com/ArdianM90/hms-backend)
+- SSL certificate files (`key.pem`, `cert.pem`) placed in the `./ssl` directory.
+
+You can generate the SSL certificates using the following command:
 ```bash
-ng serve
+openssl req -x509 -newkey rsa:4096 -nodes -keyout ssl/key.pem -out ssl/cert.pem -days 365
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+**Build and run the project:**
 ```bash
-ng generate component component-name
+npm install
+npm run build
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+By default, the application runs at: [https://localhost:4200](https://localhost:4200)
 
-```bash
-ng generate --help
-```
+## Technologies
+- [Angular](https://angular.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Angular Material (MUI)](https://material.angular.io/)
+- [RxJS](https://rxjs.dev/)
+- [Vercel](https://vercel.com/) – hosting
+- User authentication using JWT (access token in local storage + refresh token in httpOnly cookie)
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Planned next steps (project is still a Work In Progress):
+- user registration,
+- hotel booking functionality (user can create a reservation).
