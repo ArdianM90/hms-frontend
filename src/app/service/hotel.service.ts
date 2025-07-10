@@ -15,7 +15,7 @@ export class HotelService {
     return this.http.get<Hotel[]>(`${environment.apiUrl}/hotels`, { withCredentials: true })
   }
 
-  getHotel(hotelId: number): Observable<Hotel> {
-    return this.http.get<Hotel>(`${environment.apiUrl}/hotel?hotelId=${hotelId}`, { withCredentials: true })
+  getHotel(id: number): Observable<Hotel> {
+    return this.http.get<Hotel>(`${environment.apiUrl}/hotel/${id}`, { withCredentials: true })
   }
 }

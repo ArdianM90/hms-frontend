@@ -1,8 +1,12 @@
-Readme PL -> [link](README.pl.md)
+[Readme PL](README.pl.md)
 
 # Hotel Booking App – Frontend
 
 **Live demo:** [adrian-mienkowski-booking-app.vercel.app](https://adrian-mienkowski-booking-app.vercel.app)
+- login: `demo`
+- hasło: `demo123`
+
+> ℹ️ Note: The backend server may take up to **2 minutes to wake up** after a period of inactivity (free-tier hosting limitation). Please be patient when logging in for the first time.
 
 This is the frontend part of a hotel booking application, built with Angular and TypeScript. It supports user login, displaying a list of hotels, and viewing hotel details. The application communicates with a Spring Boot backend via REST API and uses JWT authentication, with the access token stored in localStorage and the refresh token stored securely in httpOnly cookies.
 
@@ -39,7 +43,7 @@ npm start
 
 By default, the application runs at: [https://localhost:4200](https://localhost:4200)
 
-## Technologies
+## Technologies Used
 - [Angular](https://angular.io/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Angular Material (MUI)](https://material.angular.io/)
@@ -47,6 +51,22 @@ By default, the application runs at: [https://localhost:4200](https://localhost:
 - [Vercel](https://vercel.com/) – hosting
 - User authentication using JWT (access token in local storage + refresh token in httpOnly cookie)
 
-### Planned next steps (project is still a Work In Progress):
+## REST API – available endpoints
+### Authentication (AuthenticationController.java)
+
+| Method | Endpoint              | Description       | Authorization                   |
+|--------|-----------------------|-------------------|---------------------------------|
+| POST   | /hms/v1/auth/login    | User login        | no                              |
+| POST   | /hms/v1/auth/logout   | User logout       | no                              |
+| POST   | /hms/v1/auth/refresh  | Refresh JWT token | refresh token (httpOnly cookie) |
+
+### Hotel listing (HotelListController.java)
+
+| Method | Endpoint           | Description              | Authorization               |
+|--------|--------------------|--------------------------|-----------------------------|
+| GET    | /hms/v1/hotel/{id} | Get hotel details by ID  | access token/ refresh token |
+| GET    | /hms/v1/hotels     | Get a list of all hotels | access token/ refresh token |
+
+### Planned Features (Work in Progress):
 - user registration,
 - hotel booking functionality (user can create a reservation).
