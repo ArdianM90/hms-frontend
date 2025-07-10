@@ -4,7 +4,7 @@
 
 **Live demo:** [adrian-mienkowski-booking-app.vercel.app](https://adrian-mienkowski-booking-app.vercel.app)
 - login: `demo`
-- hasło: `demo123`
+- password: `demo123`
 
 > ℹ️ Note: The backend server may take up to **2 minutes to wake up** after a period of inactivity (free-tier hosting limitation). Please be patient when logging in for the first time.
 
